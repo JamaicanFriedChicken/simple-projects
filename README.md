@@ -1,1 +1,1 @@
-#Simple Projects in Python for Practice
+# Simple Projects in Python for Practice
