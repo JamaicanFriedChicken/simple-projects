@@ -6,6 +6,10 @@ import time
 
 delay = 0.1
 
+# Score
+score = 0
+high_score = 0
+
 # Setting up the screen
 window = turtle.Screen()
 window.title("Simple Snake Game")
@@ -30,8 +34,17 @@ food.color("purple")
 food.penup()
 food.goto(0, 100)
 
-
 segments = []
+
+# Pen
+pen = turtle.Turtle()
+pen.speed(0)
+pen.shape("square")
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Score: 0  High Score: 0", align="center", font=("Courier", 24, "normal"))
 
 def go_up():
     if head.direction != "down":
@@ -44,12 +57,12 @@ def go_down():
 
 
 def go_left():
-    if head.direction != "right"
+    if head.direction != "right":
         head.direction = "left"
 
 
 def go_right():
-    if head.direction != "left"
+    if head.direction != "left":
         head.direction = "right"
 
 
@@ -95,6 +108,15 @@ while True:
         # Clear the segments list
         segments.clear()
 
+        # Reset score
+        score = 0
+
+        if score > high_score:
+            high_score = score
+
+        pen.clear()
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
+
     # Checks collision with food
     if head.distance(food) < 20:
         # Moves the food to a random spot
@@ -109,6 +131,18 @@ while True:
         new_segment.color("grey")
         new_segment.penup()
         segments.append(new_segment)
+
+        # Shorten delay, makes game faster as snake gets longer
+        delay -= 0.002
+
+        # Increase score
+        score += 10
+
+        if score > high_score:
+            high_score = score
+
+        pen.clear()
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
 
     # Move the end segments first in reverse order
     for index in range(len(segments) - 1, 0, -1):
@@ -137,6 +171,19 @@ while True:
 
             # Clear segments
             segments.clear()
+
+            # Increase score
+            score = 0
+
+            # Reset delay
+            delay = 0.1
+
+            if score > high_score:
+                high_score = score
+
+            pen.clear()
+            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center",
+                      font=("Courier", 24, "normal"))
 
     time.sleep(delay)
 
