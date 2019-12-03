@@ -11,3 +11,6 @@ function age() {
     console.log(ageInDays);
 }
 
+function reset() {
+    document.getElementById('ageInDays').remove();
+}
