@@ -1,6 +1,6 @@
 # Simple Projects in Python, Javascript
 
-?style=python&logo=appveyor ?style=javascript&logo=appveyor
+<img src="https://img.shields.io/badge/made%20with-python-blue.svg?style=plastic" alt="made with python"> <img src="https://img.shields.io/badge/made%20with-javascript-brightgreen?style=plastic"> <img src="https://img.shields.io/badge/languages-2-yellowgreen?style=plastic">
 
 The main purpose of this repository is to do "simple" projects that will slowly hone my skills in Python whereby I take on the task of coding a project once a day. 
 
