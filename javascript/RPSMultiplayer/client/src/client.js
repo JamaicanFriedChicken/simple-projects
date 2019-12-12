@@ -7,6 +7,7 @@ const writeEvent = (text) => {
     el.innerHTML = text;
  
     parent.appendChild(el);
+    parent.scrollTop = parent.scrollHeight - parent.clientHeight;
 };
 
 const onFormSubmitted  = (e) => {
